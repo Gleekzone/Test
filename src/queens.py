@@ -18,7 +18,7 @@ class SolutionQ:
             ansStr = [str(value) for value in self.ans]
             newSolution = Solutions(solve=','.join(ansStr))
             session.add(newSolution)
-            #print(self.ans)
+            print(self.ans)
         valid_poss = self.all & ~(ld | cols | rd)
         while valid_poss != 0:
             current_poss = -valid_poss & valid_poss
@@ -32,6 +32,7 @@ class SolutionQ:
         if n < 8:
             print ("ingrese un numero mayor o igual a 8")
         else:
+            
             self.count = 0
             self.ans = []
             self.all =  (1 << n) - 1
@@ -39,11 +40,10 @@ class SolutionQ:
             session.commit()
             return self.count
 
-
-n = int(sys.argv[1])
-s = SolutionQ()
-session.query(Solutions).delete()
-session.commit()
-r = s.nqueens(n)
-if r:
-    print (r)
+if __name__ == "__main__":
+    #n = int(sys.argv[1])
+    for n in range(8, 16):
+        s = SolutionQ()
+        r = s.nqueens(n)
+        if r:
+            print (n,r)

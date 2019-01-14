@@ -15,5 +15,6 @@ class Solutions(Base):
 
 engine = create_engine('postgresql+psycopg2://postgres:1234@db:5432/nqueen-db')
 Session = sessionmaker(bind=engine)
+Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
 session = Session()
