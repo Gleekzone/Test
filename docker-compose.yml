@@ -10,6 +10,16 @@ services:
       db:
         condition: service_healthy
     command: ['wait-for-it.sh', 'db:5432', '--', 'python3','queens.py']
+  app-test:
+    build: .
+    image: queens-app-test
+    container_name: nqueens-app-test
+    volumes:
+    - ./src:/src
+    depends_on:
+      db:
+        condition: service_healthy
+    command: ['wait-for-it.sh', 'db:5432', '--', 'pytest','queens_test.py']
   db:
     image: mdillon/postgis
     container_name: queen-db
