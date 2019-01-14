@@ -8,12 +8,16 @@
 #I found this blog post. Ref: http://gregtrowbridge.com/a-bitwise-solution-to-the-n-queens-problem-in-javascript/
 
 import sys
+from db import session, Solutions
 
 class SolutionQ:
 
     def sl(self,ld, cols, rd, nq):
         if nq == self.n:
             self.count += 1
+            ansStr = [str(value) for value in self.ans]
+            newSolution = Solutions(solve=','.join(ansStr))
+            session.add(newSolution)
             #print(self.ans)
         valid_poss = self.all & ~(ld | cols | rd)
         while valid_poss != 0:
@@ -32,11 +36,14 @@ class SolutionQ:
             self.ans = []
             self.all =  (1 << n) - 1
             self.sl(0,0,0,0)
+            session.commit()
             return self.count
 
 
 n = int(sys.argv[1])
 s = SolutionQ()
+session.query(Solutions).delete()
+session.commit()
 r = s.nqueens(n)
 if r:
     print (r)
