@@ -1,0 +1,7 @@
+language: python
+
+services:
+  - docker
+
+script:
+  - bundle exec rake queens.py queens_test.py
