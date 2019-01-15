@@ -1,10 +1,8 @@
 language: python
 
-python:
-    - "3.6"
 
 services:
   - docker
 
 script:
-  - bundle exec rake queens.py queens_test.py
+  - docker-compose up app
