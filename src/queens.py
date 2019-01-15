@@ -18,7 +18,7 @@ class SolutionQ:
             ansStr = [str(value) for value in self.ans]
             newSolution = Solutions(solve=','.join(ansStr))
             session.add(newSolution)
-            print(self.ans)
+            #print(self.ans)
         valid_poss = self.all & ~(ld | cols | rd)
         while valid_poss != 0:
             current_poss = -valid_poss & valid_poss
@@ -42,7 +42,7 @@ class SolutionQ:
 
 if __name__ == "__main__":
     #n = int(sys.argv[1])
-    for n in range(8, 16):
+    for n in range(8, 10):
         s = SolutionQ()
         r = s.nqueens(n)
         if r:

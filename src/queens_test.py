@@ -15,7 +15,7 @@ def test_9():
     sl = SolutionQ()
     assert sl.nqueens(9) == 352
 
-def test_10():
+""" def test_10():
 
     sl = SolutionQ()
     assert sl.nqueens(10) == 724
@@ -43,4 +43,4 @@ def test_14():
 def test_15():
 
     sl = SolutionQ()
-    assert sl.nqueens(15) == 2279184    
+    assert sl.nqueens(15) == 2279184  """   

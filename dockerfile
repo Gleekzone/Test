@@ -1,6 +1,7 @@
 FROM ubuntu:16.04
 COPY ./src /src
 COPY ./wait-for-it/wait-for-it.sh /bin
+RUN chmod +x /bin/wait-for-it.sh
 
 WORKDIR /src
 
