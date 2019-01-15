@@ -1,11 +1,5 @@
 #Coding challenge 2019
 #Author: Glenda Lizbeth Lopez Broca
-#Problem: NQueens
-#Nickname:Gleeks 
-
-#This my python implementation of the algorithm described in the paper by Martin Richards. Ref: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.51.7113&rep=rep1&type=pdf
-#The algorithm is very efficient because it takes advantage of bitwise operators.
-#I found this blog post. Ref: http://gregtrowbridge.com/a-bitwise-solution-to-the-n-queens-problem-in-javascript/
 
 import sys
 from db import session, Solutions
